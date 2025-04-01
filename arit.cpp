@@ -1,6 +1,7 @@
 #include "arit.h"
 
-// Implemantacion
+// Implementacion
 int suma(int a, int b){
     return a+b;
 }
+
