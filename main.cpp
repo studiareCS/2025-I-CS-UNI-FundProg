@@ -1,20 +1,15 @@
 #include <iostream> // cout
-#include "arit.h"   // para usar la funcion suma
+#include "demos.h"   // para usar la funcion suma, resta
 
 using namespace std; // Para evitar el std::
-// clang++ -o main main.cpp arit.cpp
+// clang++ -o main main.cpp arit.cpp demos.cpp
 // para correr ejecutar: ./main
 
-void DemoFunciones(){
-    cout << suma(54, 35) << endl;
-    int x = 65, y = 18;
-    int rpta = suma(x, y);
-    cout << "La respuesta es: " << rpta << endl;
-    cout << "La resta es: " << resta(x, y) << endl;
-}
-
 int main(){
-    cout << "Hola mundo desde Fund Prog 2025-I" << endl;
-    DemoFunciones();
+    cout << "Fundamentos de Programación 2025-I" << endl;
+    // DemoFunciones();
+    DemoParametros();
     return 0;
 }
+
+
