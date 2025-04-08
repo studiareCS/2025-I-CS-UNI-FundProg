@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "array.h"
 
 using namespace std;
@@ -17,10 +18,10 @@ void ReadArray(T *pArray, size_t n){
     }
 }
 
-void PrintArray(T *pArray, size_t n){
+void PrintArray(T *pArray, size_t n, ostream &os){
     cout << "Los valores ingresados son:" << endl;
     for(size_t i = 0 ; i < n ; ++i){
-        cout << "v[" << i << "]: " << pArray[i] << endl;
+        os << "v[" << i << "]: " << pArray[i] << endl;
     }
 }
 
@@ -45,7 +46,10 @@ void DemoArrays(){
     // Ingresar los valores
     ReadArray(pV1, nElem1);
     // Imprimir los valores ingresados
-    PrintArray(pV1, nElem1);
+    ofstream of1("test.txt");
+    PrintArray(pV1, nElem1, of1);
+    of1.close();
+    PrintArray(pV1, nElem1, cout);
     // Eliminar la memoria
     DestroyArray(pV1);
 
@@ -56,7 +60,9 @@ void DemoArrays(){
     // Ingresar los valores
     ReadArray(pV2, nElem2);
     // Imprimir los valores ingresados
-    PrintArray(pV2, nElem2);
+    ofstream of2("prueba2.txt");
+    PrintArray(pV2, nElem2, of2);
+    of2.close();
     // Eliminar la memoria
     DestroyArray(pV2);
 }
