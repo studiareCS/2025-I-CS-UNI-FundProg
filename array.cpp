@@ -3,26 +3,28 @@
 
 using namespace std;
 
-void CreateArray(int *&pArray, int n){
-    pArray = new int [n]; // Pido memoria para n elementos de tipo int
+// typedef double T; // Estilo antiguo C, C++
+using T = string;    // Estilo C++11, C++14, C++17, C++20, C++23
+void CreateArray(T *&pArray, size_t n){
+    pArray = new T [n]; // Pido memoria para n elementos de tipo T
 }
 
-void ReadArray(int *pArray, int n){
+void ReadArray(T *pArray, size_t n){
     cout << "Leyendo " << n << " elementos ..." << endl;
-    for(int i = 0 ; i < n ; ++i){
+    for(size_t i = 0 ; i < n ; ++i){
         cout << "Ingresar v[" << i << "]: ";
         cin  >> pArray[i];
     }
 }
 
-void PrintArray(int *pArray, int n){
+void PrintArray(T *pArray, size_t n){
     cout << "Los valores ingresados son:" << endl;
-    for(int i = 0 ; i < n ; ++i){
+    for(size_t i = 0 ; i < n ; ++i){
         cout << "v[" << i << "]: " << pArray[i] << endl;
     }
 }
 
-void DestroyArray(int *&pArray){
+void DestroyArray(T *&pArray){
     cout << "Liberando la memoria asignada" << endl;
     delete [] pArray;    // Liberar la memoria
     pArray = nullptr;
@@ -30,8 +32,10 @@ void DestroyArray(int *&pArray){
 
 // Version programacion estructurada ... todavia reprobada
 void DemoArrays(){
-    int *pV1 = nullptr, nElem1 = 0;
-    int *pV2 = nullptr, nElem2 = 0;
+    T *pV1 = nullptr;
+    size_t nElem1 = 0;
+    T *pV2 = nullptr;
+    size_t nElem2 = 0;
 
     cout << "Ingrese tamano del array:";
     cin >> nElem1;
