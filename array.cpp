@@ -6,6 +6,12 @@ using namespace std;
 
 // typedef double T; // Estilo antiguo C, C++
 using T = string;    // Estilo C++11, C++14, C++17, C++20, C++23
+
+struct SArray{
+    T *pArray    = nullptr;
+    size_t nElem = 0;
+};
+
 void CreateArray(T *&pArray, size_t n){
     pArray = new T [n]; // Pido memoria para n elementos de tipo T
 }
