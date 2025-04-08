@@ -19,7 +19,7 @@ void f1(int n){
 
 // &n means n is received by reference
 void f2(int &n)  { n++;   }
-void f3(int *px) { ++*px;  px = nullptr; }
+void f3(int * px){ ++*px;  px = nullptr; }
 void f4(int *&px){ ++*px;  px = nullptr; }
 
 void DemoParametros(){
