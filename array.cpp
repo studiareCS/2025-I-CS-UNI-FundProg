@@ -3,42 +3,56 @@
 
 using namespace std;
 
-int *pArray = nullptr, nElem = 0;
-
-void CreateArray(){
-    pArray = new int [nElem]; // Pido memoria para n elementos de tipo int
+void CreateArray(int *&pArray, int n){
+    pArray = new int [n]; // Pido memoria para n elementos de tipo int
 }
 
-void ReadArray(){
-    for(int i = 0 ; i < nElem ; ++i){
+void ReadArray(int *pArray, int n){
+    cout << "Leyendo " << n << " elementos ..." << endl;
+    for(int i = 0 ; i < n ; ++i){
         cout << "Ingresar v[" << i << "]: ";
         cin  >> pArray[i];
     }
 }
 
-void PrintArray(){
+void PrintArray(int *pArray, int n){
     cout << "Los valores ingresados son:" << endl;
-    for(int i = 0 ; i < nElem ; ++i){
+    for(int i = 0 ; i < n ; ++i){
         cout << "v[" << i << "]: " << pArray[i] << endl;
     }
 }
 
-void DestroyArray(){
+void DestroyArray(int *&pArray){
     cout << "Liberando la memoria asignada" << endl;
     delete [] pArray;    // Liberar la memoria
+    pArray = nullptr;
 }
 
-// Version reprobada 100%
+// Version programacion estructurada ... todavia reprobada
 void DemoArrays(){
+    int *pV1 = nullptr, nElem1 = 0;
+    int *pV2 = nullptr, nElem2 = 0;
+
     cout << "Ingrese tamano del array:";
-    cin >> nElem;
+    cin >> nElem1;
 
     // Crear el vector
-    CreateArray();
+    CreateArray(pV1, nElem1);
     // Ingresar los valores
-    ReadArray();
+    ReadArray(pV1, nElem1);
     // Imprimir los valores ingresados
-    PrintArray();
+    PrintArray(pV1, nElem1);
     // Eliminar la memoria
-    DestroyArray();
+    DestroyArray(pV1);
+
+    cout << "Ingrese tamano del array:";
+    cin >> nElem2;
+    // Crear el vector
+    CreateArray(pV2, nElem2);
+    // Ingresar los valores
+    ReadArray(pV2, nElem2);
+    // Imprimir los valores ingresados
+    PrintArray(pV2, nElem2);
+    // Eliminar la memoria
+    DestroyArray(pV2);
 }
