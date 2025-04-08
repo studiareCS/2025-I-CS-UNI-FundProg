@@ -5,27 +5,40 @@ using namespace std;
 
 int *pArray = nullptr, nElem = 0;
 
-// Version reprobada 100%
-void DemoArrays(){
-    cout << "Ingrese tamano del array:";
-    int n;
-    cin >> n;
+void CreateArray(){
+    pArray = new int [nElem]; // Pido memoria para n elementos de tipo int
+}
 
-    // Crear el vector
-    pArray = new int [n]; // Pido memoria para n elementos de tipo int
-    
-    // Ingresar los valores
-    for(int i = 0 ; i < n ; ++i){
+void ReadArray(){
+    for(int i = 0 ; i < nElem ; ++i){
         cout << "Ingresar v[" << i << "]: ";
         cin  >> pArray[i];
     }
-    // Imprimir los valores ingresados
+}
+
+void PrintArray(){
     cout << "Los valores ingresados son:" << endl;
-    for(int i = 0 ; i < n ; ++i){
+    for(int i = 0 ; i < nElem ; ++i){
         cout << "v[" << i << "]: " << pArray[i] << endl;
     }
+}
 
-    // Eliminar la memoria
+void DestroyArray(){
     cout << "Liberando la memoria asignada" << endl;
     delete [] pArray;    // Liberar la memoria
+}
+
+// Version reprobada 100%
+void DemoArrays(){
+    cout << "Ingrese tamano del array:";
+    cin >> nElem;
+
+    // Crear el vector
+    CreateArray();
+    // Ingresar los valores
+    ReadArray();
+    // Imprimir los valores ingresados
+    PrintArray();
+    // Eliminar la memoria
+    DestroyArray();
 }
