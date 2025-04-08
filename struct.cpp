@@ -52,12 +52,14 @@ void DemoStructs(){
     pVS[1].m_name = "Alex";
     pVS[1].m_age  = 40;
 
+    // Las siguientes 5 formas son exactamente lo mismo !!!!
+    // Estudiar con atención y probar en tu computador
     pVS[2].m_name = "Jaime";
     (pVS+2)->m_name = "Jaime";
     (*(pVS+2)).m_name = "Jaime";
     (*(2+pVS)).m_name = "Jaime";
     2[pVS].m_name = "Jaime";
-    
+
     pVS[2].m_age  = 25;
     for(int i = 0 ; i < 3 ; ++i)
         PrintStudentX(pVS[i]);
