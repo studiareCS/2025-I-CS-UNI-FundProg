@@ -1,48 +1,52 @@
 
 #include "struct.h"
 
-void PrintStudentX(Student &s){
+void PrintStudent(Student &s){
     cout << "Nombre: " << s.m_name 
          << ", Edad: " << s.m_age << endl;
 }
 
-void PrintStudentX(Student *pStudent){
-    PrintStudentX(*pStudent);
+void PrintStudent(Student *pStudent){
+    PrintStudent(*pStudent);
 }
 
-void PrintStudentY(Student &s){
-    PrintStudentX(&s);
-}
+// void PrintStudentY(Student &s){
+//     PrintStudentY(&s);
+// }
 
-void PrintStudentY(Student *pStudent){
-    cout << "Nombre: " << pStudent->m_name 
-         << ", Edad: " << pStudent->m_age << endl;
-}
+// void PrintStudentY(Student *pStudent){
+//     cout << "Nombre: " << pStudent->m_name 
+//          << ", Edad: " << pStudent->m_age << endl;
+// }
 
 void DemoStructs(){
+
+    // Manejo de struct estáticas
     Student s1;
     s1.m_name = "Juan";
     s1.m_age  = 20;
-    PrintStudentX(s1);
-    PrintStudentY(s1);
-    PrintStudentY(&s1);
+    PrintStudent(s1);
+    // PrintStudentY(s1);
+    // PrintStudentY(&s1);
     
+    // Apuntando a una estructura
     Student *p1 = nullptr;
     p1 = &s1;
     p1->m_name = "Gabriela";
-    PrintStudentX(p1);
-    PrintStudentX(*p1);
+    PrintStudent(p1);   // PrintStudent(Student &s1);
+    PrintStudent(*p1);  // PrintStudent(Student *pS);
 
+    // Creando una estructura dinámica
     cout << "Ahora con un objeto dinámico" << endl;
     Student *p2 = nullptr;
     p2 = new Student;
     p2->m_name = "Alfonso";
     p2->m_age  = 30;
-    PrintStudentX(p2);
-    PrintStudentX(*p2);
-    PrintStudentY(p2);
-    PrintStudentY(*p2);
-    delete p2;
+    PrintStudent(p2);
+    PrintStudent(*p2);
+    // PrintStudentY(p2);
+    // PrintStudentY(*p2);
+    delete p2; // Liberando el objeto apuntado por p2
 
     cout << "Vectores de struct dinamicas" <<endl;
     Student *pVS = nullptr;
@@ -59,9 +63,17 @@ void DemoStructs(){
     (*(pVS+2)).m_name = "Jaime";
     (*(2+pVS)).m_name = "Jaime";
     2[pVS].m_name = "Jaime";
-
     pVS[2].m_age  = 25;
+
+    Student *pVX = nullptr;
+    pVX = pVS + 2;
+    pVX[-2].m_name = "Maria"; // Ojo indice negativo pero tiene sentido
+
+    Student &rs = pVS[1];
+    rs.m_age = 35;
+
     for(int i = 0 ; i < 3 ; ++i)
-        PrintStudentX(pVS[i]);
+        PrintStudent(pVS[i]);
+    //  PrintStudent(&pVS[i]);
     delete [] pVS;
 }

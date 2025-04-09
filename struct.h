@@ -1,6 +1,6 @@
 #ifndef __STRUCT_H__
 #define __STRUCT_H__
-#include <iostream>
+#include <iostream> // string
 using namespace std;
 
 struct Student{

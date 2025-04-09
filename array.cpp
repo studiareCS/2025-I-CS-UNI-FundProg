@@ -8,8 +8,8 @@ using namespace std;
 using T = string;    // Estilo C++11, C++14, C++17, C++20, C++23
 
 struct SArray{
-    T *pArray    = nullptr;
-    size_t nElem = 0;
+    T     *pArray = nullptr;
+    size_t nElem  = 0;
 };
 
 void CreateArray(T *&pArray, size_t n){
@@ -25,7 +25,6 @@ void ReadArray(T *pArray, size_t n){
 }
 
 void PrintArray(T *pArray, size_t n, ostream &os){
-    cout << "Los valores ingresados son:" << endl;
     for(size_t i = 0 ; i < n ; ++i){
         os << "v[" << i << "]: " << pArray[i] << endl;
     }
@@ -53,6 +52,7 @@ void DemoArrays(){
     ReadArray(pV1, nElem1);
     // Imprimir los valores ingresados
     ofstream of1("test.txt");
+    cout << "Los valores ingresados son:" << endl;
     PrintArray(pV1, nElem1, of1);
     of1.close();
     PrintArray(pV1, nElem1, cout);
